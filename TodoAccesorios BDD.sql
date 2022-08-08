@@ -176,6 +176,18 @@ CONSTRAINT PK_Id_LogVenta PRIMARY KEY (Id_LogVenta_LV)
 )
 GO
 
+CREATE TABLE Log_Usuarios
+(
+Id_LogUsuario_LV INT IDENTITY (1,1)NOT NULL,
+DNI_LU char(8) NOT NULL, 
+Fecha_LU datetime NOT NULL,
+Motivo_LU char(30) NOT NULL,
+CONSTRAINT PK_Id_LogVenta PRIMARY KEY (Id_LogUsuario_LV)
+)
+GO
+
+
+
 
 
 
