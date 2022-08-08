@@ -1,6 +1,6 @@
+
 CREATE DATABASE TodoAccesoriosBD
 GO
-
 
 
 USE TodoAccesoriosBD
@@ -483,7 +483,7 @@ AS
     Tipo_Us=@TIPO,
     Estado=@ESTADO,
 	Barrio_Us=@BARRIO, 
-	CodPostal_Us=@CODIGOPOSTAL
+	CodPostal_Us=@CODPOSTAL
 	WHERE DNI_Us=@DNI
 GO
 
@@ -523,7 +523,7 @@ CREATE PROCEDURE SPAgregarUsuario
 	)
 AS
     INSERT INTO Usuarios(DNI_Us,Usuario_Us,Email_Us,IdProv_Us,IdLoc_Us,Domicilio_Us,Contraseña_Us,Telefono_Us,Nombre_Us,Apellido_Us,FechaNac_Us, Departamento_Us, Barrio_Us, CodPostal_Us) 
-	VALUES(@DNI,@USUARIO,@EMAIL,@PROV,@LOC,@DOMICILIO,@CONTRASEÑA,@TELEFONO,@NOMBRE,@APELLIDO,@FECHANAC,@DEPARTAMENTO,@BARRIO,@CODIGOPOSTAL)
+	VALUES(@DNI,@USUARIO,@EMAIL,@PROV,@LOC,@DOMICILIO,@CONTRASEÑA,@TELEFONO,@NOMBRE,@APELLIDO,@FECHANAC,@DEPARTAMENTO,@BARRIO,@CODPOSTAL)
     GO
 
 CREATE PROCEDURE SPAgregarVenta
