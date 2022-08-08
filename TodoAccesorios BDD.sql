@@ -176,7 +176,6 @@ CONSTRAINT PK_Id_LogVenta PRIMARY KEY (Id_LogVenta_LV)
 )
 GO
 
-DROP TABLE Log_Usuarios
 
 CREATE TABLE Log_Usuarios
 (
