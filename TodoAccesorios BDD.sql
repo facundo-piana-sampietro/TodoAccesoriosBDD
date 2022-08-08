@@ -461,7 +461,7 @@ CREATE PROCEDURE SPActualizarUsuario
     @ESTADO bit,
 	@DEPARTAMENTO varchar(10),
 	@BARRIO varchar(40),
-	@CODIGOPOSTAL int
+	@CODPOSTAL int
 	)
 
 AS
@@ -519,7 +519,7 @@ CREATE PROCEDURE SPAgregarUsuario
 	@FECHANAC date,
 	@DEPARTAMENTO varchar(10),
 	@BARRIO varchar(40),
-	@CODIGOPOSTAL int
+	@CODPOSTAL int
 	)
 AS
     INSERT INTO Usuarios(DNI_Us,Usuario_Us,Email_Us,IdProv_Us,IdLoc_Us,Domicilio_Us,Contraseña_Us,Telefono_Us,Nombre_Us,Apellido_Us,FechaNac_Us, Departamento_Us, Barrio_Us, CodPostal_Us) 
