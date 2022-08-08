@@ -2,6 +2,7 @@ CREATE DATABASE TodoAccesoriosBD
 GO
 
 
+
 USE TodoAccesoriosBD
 GO
 
