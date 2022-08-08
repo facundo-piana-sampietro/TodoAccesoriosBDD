@@ -1,11 +1,10 @@
 CREATE DATABASE TodoAccesoriosBD
 GO
 
+
 USE TodoAccesoriosBD
 GO
 
-DROP DATABASE TodoAccesoriosBD
-GO
 
 CREATE TABLE Categorias
 (
@@ -224,17 +223,17 @@ GO
 
 
 INSERT INTO Usuarios (DNI_Us, Usuario_Us, Email_Us, IdProv_Us, IdLoc_Us, Domicilio_Us, 
-Contraseña_Us, Telefono_Us, Nombre_Us, Apellido_Us, UrlImagen_Us, FechaNac_Us, Tipo_Us, Estado)
+Contraseña_Us, Telefono_Us, Nombre_Us, Apellido_Us, UrlImagen_Us, FechaNac_Us, Tipo_Us, Estado,CodPostal_Us)
 SELECT 'adminDNI','admin','TodoAccesorios@gmail.com','1','1','adminDOM','adminPass','123','Admin','Adminaso',
-N'Forms/Imagenes/Usuarios/user-default','1666-6-6',2,1 UNION
+N'Forms/Imagenes/Usuarios/user-default','1666-6-6',2,1, 1640 UNION
 SELECT '22392235','Maria1','Marisita@gmail.com','1','2','peuje 99','MariaPass','4749-1238','Maria','Mendez',
-N'Forms/Imagenes/Usuarios/user-22392235','1957-1-16',1,1 UNION
+N'Forms/Imagenes/Usuarios/user-22392235','1957-1-16',1,1, 1620 UNION
 SELECT '29483923','Pepaso2','pepito@gmail.com','2','1','santa 233','pepePass','3832-0952','Pepe','Rodrigez',
-N'Forms/Imagenes/Usuarios/user-29483923','1940-9-28',1,1 UNION
+N'Forms/Imagenes/Usuarios/user-29483923','1940-9-28',1,1, 1612 UNION
 SELECT '40483923','L-Gante3','cumbia@gmail.com','3','1','Calle','L-GantePass','420','L-Gante','Keloke',
-N'Forms/Imagenes/Usuarios/user-40483923','1997-3-20',1,1 UNION
+N'Forms/Imagenes/Usuarios/user-40483923','1997-3-20',1,1, 1655 UNION
 SELECT '25483923','Biden4','Biden@gmail.com','4','1','Pennsylvania 1600','BidenPass','9648-2783','Joe','Biden',
-N'Forms/Imagenes/Usuarios/user-25483923','1942-11-20',1,1
+N'Forms/Imagenes/Usuarios/user-25483923','1942-11-20',1,1, 1660
 GO
 
 
@@ -457,8 +456,11 @@ CREATE PROCEDURE SPActualizarUsuario
 	@APELLIDO char(30),
 	@URL varchar(60),
 	@FECHANAC date,
-        @TIPO int,
-        @ESTADO bit
+    @TIPO int,
+    @ESTADO bit,
+	@DEPARTAMENTO varchar(10),
+	@BARRIO varchar(40),
+	@CODIGOPOSTAL int
 	)
 
 AS
@@ -477,8 +479,10 @@ AS
 	Apellido_Us=@APELLIDO,
 	UrlImagen_Us=@URL,
 	FechaNac_Us=@FECHANAC,
-        Tipo_Us=@TIPO,
-        Estado=@ESTADO
+    Tipo_Us=@TIPO,
+    Estado=@ESTADO,
+	Barrio_Us=@BARRIO, 
+	CodPostal_Us=@CODIGOPOSTAL
 	WHERE DNI_Us=@DNI
 GO
 
@@ -511,11 +515,14 @@ CREATE PROCEDURE SPAgregarUsuario
 	@TELEFONO char(10),
 	@NOMBRE char(30),
 	@APELLIDO char(30),
-	@FECHANAC date
+	@FECHANAC date,
+	@DEPARTAMENTO varchar(10),
+	@BARRIO varchar(40),
+	@CODIGOPOSTAL int
 	)
 AS
-    INSERT INTO Usuarios(DNI_Us,Usuario_Us,Email_Us,IdProv_Us,IdLoc_Us,Domicilio_Us,Contraseña_Us,Telefono_Us,Nombre_Us,Apellido_Us,FechaNac_Us) 
-	VALUES(@DNI,@USUARIO,@EMAIL,@PROV,@LOC,@DOMICILIO,@CONTRASEÑA,@TELEFONO,@NOMBRE,@APELLIDO,@FECHANAC)
+    INSERT INTO Usuarios(DNI_Us,Usuario_Us,Email_Us,IdProv_Us,IdLoc_Us,Domicilio_Us,Contraseña_Us,Telefono_Us,Nombre_Us,Apellido_Us,FechaNac_Us, Departamento_Us, Barrio_Us, CodPostal_Us) 
+	VALUES(@DNI,@USUARIO,@EMAIL,@PROV,@LOC,@DOMICILIO,@CONTRASEÑA,@TELEFONO,@NOMBRE,@APELLIDO,@FECHANAC,@DEPARTAMENTO,@BARRIO,@CODIGOPOSTAL)
     GO
 
 CREATE PROCEDURE SPAgregarVenta
