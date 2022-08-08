@@ -4,6 +4,9 @@ GO
 USE TodoAccesoriosBD
 GO
 
+DROP DATABASE TodoAccesoriosBD
+GO
+
 CREATE TABLE Categorias
 (
 Id_Cat char(8) NOT NULL,
@@ -72,6 +75,8 @@ UrlImagen_Us varchar(60) NOT NULL DEFAULT N'Imagenes/Usuarios/user-default',
 FechaNac_Us date NOT NULL,
 Tipo_Us Int NOT NULL default 1,
 Estado bit NOT NULL default 1,
+Barrio_Us varchar(40) NOT NULL DEFAULT '----',
+CodPostal_Us int NOT NULL, 
 CONSTRAINT PK_USUARIOS PRIMARY KEY (DNI_Us),
 CONSTRAINT UK_USUARIOS UNIQUE (Usuario_Us,Email_Us),
 CONSTRAINT FK_USUARIOS_LOCALIDADES FOREIGN KEY (IdLoc_Us, IdProv_Us) 
